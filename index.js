@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 /**
- * Vinculando o React ao app
+ * Vinculando o React ao app: express hospeda o React de produção (após o build)
  */
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -31,7 +31,7 @@ app.get('/api/', (_, response) => {
 });
 
 /**
- * Rotas principais do app
+ * Rotas principais do app: API backend (transaction) se hospeda em (heroku)/api/transaction
  */
 app.use('/api/transaction', routes);
 
