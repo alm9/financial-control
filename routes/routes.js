@@ -1,6 +1,8 @@
 const express = require('express');
-const transactionRouter = express.Router();
-
-module.exports = transactionRouter;
+const controller = require('../controllers/financialController.js');
+const routes = express();
 
 //TODO: ROTAS
+routes.get('/', controller.findAll);
+
+module.exports = routes;
