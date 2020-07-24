@@ -52,16 +52,31 @@ module.exports.create = async (req, res) => {
 };
 
 module.exports.delete = async (req, res) => {
+  const id = req.params.id;
   try {
-    const data = await TransactionModel.findByIdAndRemove(req.params.id);
-    console.log(data);
+    const data = await TransactionModel.findByIdAndRemove(id);
     if (data === null) {
       res.status(404).send('ID não encontrada');
-      logger.info(`DELETE /transaction/${req.params.id} (ID inexistente)`);
+      logger.info(`DELETE /transaction/${id} (ID inexistente)`);
     }
     res.send(data);
-    logger.info(`DELETE /transaction/${req.params.id}`);
+    logger.info(`DELETE /transaction/${id}`);
   } catch (error) {
     res.status(500).send(`Erro ao excluir - ${error}`);
+  }
+};
+
+module.exports.update = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const data = await TransactionModel.findByIdAndUpdate(id, req.body);
+    if (data === null) {
+      res.status(404).send('ID não encontrada');
+      logger.info(`UPDATE /transaction/${id} (ID inexistente)`);
+    }
+    res.send('Documento atualizado com sucesso');
+    logger.info(`UPDATE /transaction/${id}`);
+  } catch (error) {
+    res.status(500).send(`Erro ao atualizar - ${error}`);
   }
 };
