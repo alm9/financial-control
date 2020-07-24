@@ -17,7 +17,7 @@ module.exports.findAll = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .send({ message: error.message || 'Erro ao listar todos os documentos' });
+      .send({ message: error.message || 'Erro ao listar os documentos' });
     logger.error(`GET /transaction - ${JSON.stringify(error.message)}`);
   }
 };
@@ -27,9 +27,31 @@ module.exports.findOne = async (req, res) => {
 
   try {
     const data = await TransactionModel.findById({ _id: id });
-    res.status(200).send(data);
+    res.send(data);
     logger.info(`GET /transaction/:id`);
   } catch (error) {
-    res.status(500).send(`Erro ao buscar o podcast id ${id} ${error}`);
+    res.status(500).send(`Erro ao buscar o id ${id} ${error}`);
+  }
+};
+
+module.exports.create = async (req, res) => {
+  // const newRegistry = ({
+  //   value,
+  //   category,
+  //   year,
+  //   month,
+  //   day,
+  //   yearMonth,
+  //   yearMonthDay,
+  //   type,
+  // } = req.body);
+  const newRegistry = new TransactionModel(req.body);
+
+  try {
+    const data = await newRegistry.save(newRegistry);
+    res.send(data);
+    logger.info(`GET /create`);
+  } catch (error) {
+    res.status(500).send(`Erro ao criar - ${error}`);
   }
 };
