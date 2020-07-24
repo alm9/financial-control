@@ -27,6 +27,11 @@ module.exports.findOne = async (req, res) => {
 
   try {
     const data = await TransactionModel.findById({ _id: id });
+    if (data === null) {
+      res.status(404).send('ID não encontrada');
+      logger.info(`GET /transaction/:id`);
+    }
+
     res.send(data);
     logger.info(`GET /transaction/:id`);
   } catch (error) {
