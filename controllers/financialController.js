@@ -35,23 +35,28 @@ module.exports.findOne = async (req, res) => {
 };
 
 module.exports.create = async (req, res) => {
-  // const newRegistry = ({
-  //   value,
-  //   category,
-  //   year,
-  //   month,
-  //   day,
-  //   yearMonth,
-  //   yearMonthDay,
-  //   type,
-  // } = req.body);
   const newRegistry = new TransactionModel(req.body);
 
   try {
     const data = await newRegistry.save(newRegistry);
-    res.send(data);
+    res.status(201).send(data);
     logger.info(`GET /create`);
   } catch (error) {
     res.status(500).send(`Erro ao criar - ${error}`);
+  }
+};
+
+module.exports.delete = async (req, res) => {
+  try {
+    const data = await TransactionModel.findByIdAndRemove(req.params.id);
+    console.log(data);
+    if (data === null) {
+      res.status(404).send('ID não encontrada');
+      logger.info(`DELETE /transaction/${req.params.id} (ID inexistente)`);
+    }
+    res.send(data);
+    logger.info(`DELETE /transaction/${req.params.id}`);
+  } catch (error) {
+    res.status(500).send(`Erro ao excluir - ${error}`);
   }
 };
