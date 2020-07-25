@@ -1,5 +1,12 @@
 import React from 'react';
+import Table from './components/Table';
 
 export default function App() {
-  return <h1>Desafio Final do Bootcamp Full Stack</h1>;
+  return (
+    <p>
+      <h3 style={{ textAlign: 'center' }}>Controle Financeiro Pessoal</h3>
+      <br />
+      <Table />
+    </p>
+  );
 }

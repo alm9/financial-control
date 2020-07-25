@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('../controllers/financialController.js');
+const controller = require('../services/transactionService.js');
 const routes = express();
 
 routes.get('/', controller.findAll);
