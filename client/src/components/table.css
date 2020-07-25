@@ -1,13 +1,20 @@
 table tr th {
   background: #0d8822;
   color: white;
-  text-align: left;
-  vertical-align: center;
+}
+
+table tr {
+  color: rgb(60, 10, 199);
 }
 
 table tr td {
-  background: #c4bfa3;
-  color: rgb(60, 10, 199);
-  text-align: left;
-  vertical-align: center;
+  background-color: #01fff7;
+  border: 2px solid #01fff7;
+  box-shadow: 0px 0px 10px skyblue;
+}
+
+table tr td2 {
+  background-color: rgb(236, 192, 236);
+  border: 2px solid magenta;
+  box-shadow: 0px 0px 10px magenta;
 }
