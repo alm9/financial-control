@@ -9,7 +9,7 @@ export default function Bar({ link }) {
     return () => {
       // clearInterval();
     };
-  }, []);
+  }, [link]);
 
   const getLancamento = async () => {
     const quantLancamentos = (await get(link)).length;

@@ -10,11 +10,11 @@ export default function Table({ link }) {
     return () => {
       // clearInterval();
     };
-  }, []);
+  }, [link]);
 
   const getVetor = async () => {
     const todos = await get(link);
-    setVetor(todos);
+    setVetor(todos.sort((a, b) => a.day - b.day));
   };
 
   return (
@@ -27,7 +27,7 @@ export default function Table({ link }) {
             <th>Categoria</th>
             <th>Valor</th>
           </tr>
-          {vetor !== null &&
+          {vetor &&
             vetor.map((item) => (
               <tr className="item" key={item._id}>
                 <td>{item.day}</td>
