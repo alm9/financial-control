@@ -1,4 +1,4 @@
-//fiz esse arquivo para organizar a busca do frontend no backend
+//fiz esse arquivo para organizar a comunicação do frontend com o backend
 //obs: poderia usar a biblioteca axios
 
 const get = async (endereco) => {
@@ -6,8 +6,8 @@ const get = async (endereco) => {
     method: 'GET',
   });
   let resposta = await buscar.json();
-  console.log(resposta);
-  return resposta.length;
+  // console.log(resposta);
+  return resposta;
 };
 
 export { get };

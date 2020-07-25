@@ -6,14 +6,14 @@ export default function Bar({ link }) {
 
   useEffect(() => {
     getLancamento();
-
     return () => {
       // clearInterval();
     };
   }, []);
 
   const getLancamento = async () => {
-    setLancamentos(await get(link));
+    const quantLancamentos = (await get(link)).length;
+    setLancamentos(quantLancamentos);
   };
 
   return <div>Lançamentos: {lancamentos}</div>;
