@@ -29,7 +29,7 @@ export default function Table({ link }) {
           </tr>
           {vetor &&
             vetor.map((item) => (
-              <tr className="item" key={item._id}>
+              <tr className={`t${item.type}`} key={item._id}>
                 <td>{item.day}</td>
                 <td>{item.description}</td>
                 <td>{item.category}</td>

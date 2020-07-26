@@ -1,20 +1,28 @@
 table tr th {
   background: #0d8822;
+  border: 2px solid #0d8822;
   color: white;
-}
+  padding-left: 2%;
 
-table tr {
-  color: rgb(60, 10, 199);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 table tr td {
+  color: rgb(60, 10, 199);
+  padding-left: 2%;
+  padding: 1.5%;
+}
+
+.t\+ {
   background-color: #01fff7;
-  border: 2px solid #01fff7;
+  border: 2px solid blue;
   box-shadow: 0px 0px 10px skyblue;
 }
 
-table tr td2 {
+.t- {
   background-color: rgb(236, 192, 236);
-  border: 2px solid magenta;
-  box-shadow: 0px 0px 10px magenta;
+  border: 2px solid red;
+  box-shadow: 0px 0px 10px red;
 }
