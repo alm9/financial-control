@@ -1,7 +1,6 @@
 import React from 'react';
-import { get } from './crud';
 
-export default function Bar({ link, filter }) {
+export default function Bar({ vetor }) {
   const [lancamentos, setLancamentos] = React.useState(0);
   const [receitas, setReceitas] = React.useState(0);
   const [despesas, setDespesas] = React.useState(0);
@@ -12,18 +11,20 @@ export default function Bar({ link, filter }) {
     return () => {
       // clearInterval();
     };
-  }, [link]);
+  }, [vetor]);
 
   const refreshBar = async () => {
-    const data = await get(link);
     let receitas = 0,
       despesas = 0;
-    data.forEach((item) => {
+    console.log('vetor', vetor);
+
+    if (vetor === null) return;
+    vetor.forEach((item) => {
       if (item.type === '-') despesas += item.value;
       else receitas += item.value;
     });
     const saldo = receitas - despesas;
-    setLancamentos(data.length);
+    setLancamentos(vetor.length);
     setReceitas(receitas);
     setDespesas(despesas);
     setSaldo(saldo);

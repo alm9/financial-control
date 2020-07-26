@@ -1,23 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { get } from './crud';
+import React from 'react';
 import './table.css';
 
-export default function Table({ link, filter }) {
-  const [vetor, setVetor] = useState(null);
-
-  useEffect(() => {
-    getVetor();
-    return () => {
-      // clearInterval();
-    };
-  }, [link, filter]);
-
-  const getVetor = async () => {
-    const data = await get(link);
-    const filtered = data.filter((item) => item.description.includes(filter));
-    setVetor(filtered.sort((a, b) => a.day - b.day));
-  };
-
+export default function Table({ vetor }) {
   return (
     <div className="panel-body">
       <table>
