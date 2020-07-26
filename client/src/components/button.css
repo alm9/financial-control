@@ -1,0 +1,63 @@
+a.btn {
+  border-radius: 180px;
+  position: relative;
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+
+  font: 100% 'Arial', sans-serif;
+  padding: 5%;
+  padding-bottom: 10mm;
+  font-weight: 700;
+  /* border-radius: 5px; */
+}
+
+a.btn:before {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  display: block;
+  width: 80%;
+  height: 70%;
+  top: 15%;
+  left: 10%;
+  transition: 0.3s opacity ease-in-out;
+  filter: blur(15px);
+  opacity: 0;
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+}
+
+a.btn:hover:before {
+  opacity: 1;
+  /* transition: 0.3s opacity ease-in-out; */
+  /* filter: blur(25px); */
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+}

@@ -1,0 +1,45 @@
+/* BODY */
+#Adicionar {
+  padding-top: 20%;
+  background: #0d8822;
+  border: 20px solid #0d8822;
+  color: white;
+
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* TOGGLE */
+
+label {
+  /* cursor: pointer; */
+  text-indent: -9999px;
+  width: 100%x;
+  height: 50px;
+  background: red;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.5s;
+}
+
+input:checked + label {
+  background: #01fff7;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
