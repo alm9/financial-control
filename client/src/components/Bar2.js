@@ -1,15 +1,31 @@
 import React from 'react';
+import { post } from './crud';
 
-export default function Bar2({ onChangeFilter }) {
+export default function Bar2({ onChangeFilter, link }) {
   const handleOnChangeInput = (event) => {
     const filtro = event.target.value;
     onChangeFilter(filtro);
   };
 
+  const handleOnClickButton = async () => {
+    console.log('botao pressionado');
+    try {
+      const data = await post(); //link
+      console.log('Registro Adicionado!');
+    } catch (err) {
+      console.log('deu erro:', err);
+    }
+    // setVetor(filtered.sort((a, b) => a.day - b.day));
+  };
+
   return (
     <div className="row">
       <div className="col s12 m4">
-        <input type="button" value="Novo Lançamento" />
+        <input
+          type="button"
+          value="Novo Lançamento"
+          onClick={handleOnClickButton}
+        />
       </div>
       <div className="col s12 m8">
         <input

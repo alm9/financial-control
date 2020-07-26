@@ -26,6 +26,7 @@ export default function App() {
   const handleOnChangeMonth = (event) => {
     setPeriod(event.target.value);
   };
+
   const handleOnChangeFilter = (filtro) => {
     setFiltro(filtro);
   };
@@ -43,7 +44,7 @@ export default function App() {
           onChange={handleOnChangeMonth}
         />
         <Bar vetor={vetor} />
-        <Bar2 onChangeFilter={handleOnChangeFilter} />
+        <Bar2 onChangeFilter={handleOnChangeFilter} link={LINK} />
         <Table vetor={vetor} />
       </div>
     </span>

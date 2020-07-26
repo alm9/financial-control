@@ -16,7 +16,6 @@ export default function Bar({ vetor }) {
   const refreshBar = async () => {
     let receitas = 0,
       despesas = 0;
-    console.log('vetor', vetor);
 
     if (vetor === null) return;
     vetor.forEach((item) => {
