@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { get } from './crud';
 
-export default function Bar({ link }) {
-  const [lancamentos, setLancamentos] = useState(0);
-  const [receitas, setReceitas] = useState(0);
-  const [despesas, setDespesas] = useState(0);
-  const [saldo, setSaldo] = useState(0);
+export default function Bar({ link, filter }) {
+  const [lancamentos, setLancamentos] = React.useState(0);
+  const [receitas, setReceitas] = React.useState(0);
+  const [despesas, setDespesas] = React.useState(0);
+  const [saldo, setSaldo] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     refreshBar();
     return () => {
       // clearInterval();
@@ -31,16 +31,16 @@ export default function Bar({ link }) {
 
   return (
     <div className="row">
-      <div className="col s12 m6 l3">
+      <div className="col s12 m3">
         <p>Lançamentos: {lancamentos}</p>
       </div>
-      <div className="col s12 m6 l3">
+      <div className="col s12 m3">
         <p>Receitas: {receitas}</p>
       </div>
-      <div className="col s12 m6 l3">
+      <div className="col s12 m3">
         <p>Despesas: {despesas}</p>
       </div>
-      <div className="col s12 m6 l3">
+      <div className="col s12 m3">
         <p>Saldo: {saldo}</p>
       </div>
     </div>
