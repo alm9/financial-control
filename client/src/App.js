@@ -7,15 +7,19 @@ const LINK = 'http://localhost:3001/api/transaction?period='; //LOCAL
 
 export default function App() {
   const [period, setPeriod] = React.useState('2020-07');
-  const [filtro, setFiltro] = React.useState('a');
+  const [filtro, setFiltro] = React.useState('');
   const [vetor, setVetor] = React.useState(null);
+
+  const addLancamento = () => {
+    console.log('Novo lançamento feito');
+  };
 
   React.useEffect(() => {
     getVetor();
     return () => {
       // clearInterval();
     };
-  }, [LINK, filtro, period]);
+  }, [filtro, addLancamento]);
 
   const getVetor = async () => {
     const data = await get(LINK + period);
@@ -44,7 +48,11 @@ export default function App() {
           onChange={handleOnChangeMonth}
         />
         <Bar vetor={vetor} />
-        <Bar2 onChangeFilter={handleOnChangeFilter} link={LINK} />
+        <Bar2
+          onChangeFilter={handleOnChangeFilter}
+          link={LINK}
+          addLancamento={addLancamento}
+        />
         <Table vetor={vetor} />
       </div>
     </span>

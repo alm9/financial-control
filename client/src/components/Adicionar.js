@@ -2,19 +2,38 @@ import React from 'react';
 import { post } from './crud';
 import './menuAdd.css';
 
-export default function Adicionar({ text, checkbox }) {
+export default function Adicionar({ text, checkbox, cancel, addLancamento }) {
   const [tipoLancamento, setTipoLancamento] = React.useState(false);
 
   const handleTipoLancamento = () => {
-    console.log(tipoLancamento);
+    // console.log(tipoLancamento);
     setTipoLancamento(!tipoLancamento);
   };
 
   const handleOnClickButton = async () => {
-    console.log('botao pressionado');
     try {
-      const data = await post(); //link
-      console.log('Registro Adicionado!');
+      const novoLancamento = {};
+      //prettier-ignore
+      novoLancamento.yearMonthDay = document.getElementById('dataLancamento').value;
+      //prettier-ignore
+      novoLancamento.yearMonth = document.getElementById('dataLancamento').value.substring(0, 7);
+      //prettier-ignore
+      [novoLancamento.year, novoLancamento.month, novoLancamento.day]
+                        = novoLancamento.yearMonthDay.split('-').map( Number )
+      //Categoria
+      novoLancamento.category = document.getElementById('Categoria').value;
+      //Descricao
+      novoLancamento.description = document.getElementById('Descricao').value;
+      //Valor
+      novoLancamento.value = document.getElementById('Valor').value;
+      //Tipo
+      if (tipoLancamento) novoLancamento.type = '+';
+      else novoLancamento.type = '-';
+      // console.log(novoLancamento);
+
+      await post(novoLancamento);
+      addLancamento(); //atualizar
+      cancel(); //fechar
     } catch (err) {
       console.log('deu erro:', err);
     }
@@ -32,10 +51,22 @@ export default function Adicionar({ text, checkbox }) {
         />
         <input type="checkbox" id="switch" onClick={handleTipoLancamento} />
         <label htmlFor="switch"></label>
-        <input type="date" placeholder="Dia" />
-        <input type="text" placeholder="Categoria" />
-        <input type="text" placeholder="Descrição" />
-        <input type="number" placeholder="Valor" />
+        <input
+          id="dataLancamento"
+          type="date"
+          placeholder="Dia"
+          // value={new Date().toLocaleDateString('en-CA')}
+          // onChange={
+          //   <script>
+          //     let dateControl = document.getElementById('dataLancamento');
+          //     console.log('dateControl'); console.log(dateControl);
+          //     dateControl.value = '2017-06-01'
+          //   </script>
+          // }
+        />
+        <input id="Categoria" type="text" placeholder="Categoria" />
+        <input id="Descricao" type="text" placeholder="Descrição" />
+        <input id="Valor" type="number" placeholder="Valor" />
         <div className="BotoesLancamento">
           <input
             id="BttAdd"
@@ -43,12 +74,7 @@ export default function Adicionar({ text, checkbox }) {
             value="Ok"
             onClick={handleOnClickButton}
           />
-          <input
-            id="BttCancel"
-            type="button"
-            value="X"
-            // onClick={handleOnClickButton}
-          />
+          <input id="BttCancel" type="button" value="X" onClick={cancel} />
         </div>
       </div>
     </div>

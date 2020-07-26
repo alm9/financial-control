@@ -2,7 +2,7 @@ import React from 'react';
 import './button.css';
 import Adicionar from './Adicionar';
 
-export default function Button() {
+export default function Button({ addLancamento }) {
   const [showAddNew, setShowAddNew] = React.useState(false);
   const handleClickButton = () => {
     setShowAddNew(!showAddNew);
@@ -13,7 +13,9 @@ export default function Button() {
       <a className="btn" invisible="true" onClick={handleClickButton}>
         Adicionar Lançamento
       </a>
-      {showAddNew && <Adicionar />}
+      {showAddNew && (
+        <Adicionar cancel={handleClickButton} addLancamento={addLancamento} />
+      )}
     </div>
   );
 }
