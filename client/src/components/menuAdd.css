@@ -1,4 +1,5 @@
-/* BODY */
+/* Todo o menu */
+
 #Adicionar {
   padding-top: 20%;
   background: #0d8822;
@@ -8,6 +9,40 @@
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+}
+
+#Adicionar input {
+  padding-top: 4%;
+  color: white;
+}
+
+/* Botões ADICIONAR e CANCELAR */
+.BotoesLancamento {
+  display: block;
+}
+
+#BttAdd {
+  transform: translateX(+1);
+  transition: 2.5s;
+  transform: translateX(-100%);
+  padding: 5%;
+  text-transform: uppercase;
+  background: #4c9458;
+  /* color: white; */
+
+  /* font-size: 16px; */
+  /* letter-spacing: 0.03em; */
+}
+
+#BttCancel {
+  transform: translateX(100%);
+  border-radius: 90px;
+  padding: 5%;
+  background: rgb(255, 255, 255);
+  transition: 2.5s;
+  background: red;
+  width: 40px;
+  height: 40px;
 }
 
 /* TOGGLE */
