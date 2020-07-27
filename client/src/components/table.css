@@ -1,4 +1,4 @@
-table tr th {
+tr th {
   background: #0d8822;
   border: 2px solid #0d8822;
   color: white;
@@ -9,7 +9,7 @@ table tr th {
   letter-spacing: 0.03em;
 }
 
-table tr td {
+tr td {
   color: rgb(60, 10, 199);
   padding-left: 2%;
   padding: 1.5%;
@@ -25,4 +25,12 @@ table tr td {
   background-color: rgb(236, 192, 236);
   border: 2px solid red;
   box-shadow: 0px 0px 10px red;
+}
+
+/* botão delete */
+.bttDelete {
+  transform: translateX(20%);
+  border-radius: 90px;
+  transition: 1s;
+  background: red;
 }

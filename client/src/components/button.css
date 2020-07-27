@@ -1,4 +1,4 @@
-a.btn {
+span.btn {
   border-radius: 180px;
   position: relative;
   background: linear-gradient(
@@ -20,7 +20,7 @@ a.btn {
   /* border-radius: 5px; */
 }
 
-a.btn:before {
+span.btn:before {
   content: '';
   z-index: 1;
   position: absolute;
@@ -45,7 +45,7 @@ a.btn:before {
   );
 }
 
-a.btn:hover:before {
+span.btn:hover:before {
   opacity: 1;
   /* transition: 0.3s opacity ease-in-out; */
   /* filter: blur(25px); */

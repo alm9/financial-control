@@ -19,7 +19,14 @@ const post = async (novoDado) => {
   });
   let resposta = await buscar.json();
   // console.log(resposta);
-  return resposta;
 };
 
-export { get, post };
+const remove = async (id) => {
+  const buscar = await fetch(LINK + `/${id}`, {
+    method: 'DELETE',
+  });
+  let resposta = await buscar.json();
+  // console.log(resposta);
+};
+
+export { get, post, remove };

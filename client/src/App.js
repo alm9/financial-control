@@ -11,7 +11,7 @@ export default function App() {
   const [vetor, setVetor] = React.useState(null);
 
   const addLancamento = () => {
-    console.log('Novo lançamento feito');
+    // console.log('Novo lançamento feito');
   };
 
   React.useEffect(() => {

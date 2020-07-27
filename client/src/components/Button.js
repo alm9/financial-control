@@ -10,9 +10,9 @@ export default function Button({ addLancamento }) {
 
   return (
     <div className="page-wrapper">
-      <a className="btn" invisible="true" onClick={handleClickButton}>
+      <span className="btn" invisible="true" onClick={handleClickButton}>
         Adicionar Lançamento
-      </a>
+      </span>
       {showAddNew && (
         <Adicionar cancel={handleClickButton} addLancamento={addLancamento} />
       )}
