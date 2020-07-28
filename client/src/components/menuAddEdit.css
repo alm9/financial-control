@@ -1,9 +1,22 @@
 /* Todo o menu */
-
+/* ADD */
 #Adicionar {
   padding-top: 20%;
   background: #0d8822;
   border: 20px solid #0d8822;
+  color: white;
+
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* EDIT */
+#Editar {
+  /* padding-top: 20%; */
+  /* position: relative; */
+  background: #36334d;
+  border: 20px solid #2e1b42;
   color: white;
 
   font-size: 16px;

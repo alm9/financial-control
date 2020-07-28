@@ -1,8 +1,8 @@
 import React from 'react';
-import { post } from './crud';
+// import { put } from './crud';
 import './menuAddEdit.css';
 
-export default function Adicionar({ text, checkbox, cancel, addLancamento }) {
+export default function Editar({ text, checkbox, cancel, addLancamento }) {
   const [tipoLancamento, setTipoLancamento] = React.useState(false);
 
   const handleTipoLancamento = () => {
@@ -31,7 +31,7 @@ export default function Adicionar({ text, checkbox, cancel, addLancamento }) {
       else novoLancamento.type = '-';
       // console.log(novoLancamento);
 
-      await post(novoLancamento);
+      // await post(novoLancamento);
       addLancamento(); //atualizar
       cancel(); //fechar
     } catch (err) {
@@ -42,7 +42,7 @@ export default function Adicionar({ text, checkbox, cancel, addLancamento }) {
 
   return (
     <div>
-      <div id="Adicionar">
+      <div id="Editar">
         {tipoLancamento ? 'Receita' : 'Despesa'}
         <input
           id="switch-shadow"
@@ -51,19 +51,8 @@ export default function Adicionar({ text, checkbox, cancel, addLancamento }) {
         />
         <input type="checkbox" id="switch" onClick={handleTipoLancamento} />
         <label htmlFor="switch"></label>
-        <input
-          id="dataLancamento"
-          type="date"
-          placeholder="Dia"
-          // value={new Date().toLocaleDateString('en-CA')}
-          // onChange={
-          //   <script>
-          //     let dateControl = document.getElementById('dataLancamento');
-          //     console.log('dateControl'); console.log(dateControl);
-          //     dateControl.value = '2017-06-01'
-          //   </script>
-          // }
-        />
+
+        <input id="dataLancamento" type="date" placeholder="Dia" />
         <input id="Categoria" type="text" placeholder="Categoria" />
         <input id="Descricao" type="text" placeholder="Descrição" />
         <input id="Valor" type="number" placeholder="Valor" />

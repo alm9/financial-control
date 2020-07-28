@@ -6,9 +6,7 @@ const get = async (url) => {
   const buscar = await fetch(url, {
     method: 'GET',
   });
-  let resposta = await buscar.json();
-  // console.log(resposta);
-  return resposta;
+  return await buscar.json();
 };
 
 const post = async (novoDado) => {
@@ -17,16 +15,23 @@ const post = async (novoDado) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(novoDado),
   });
-  let resposta = await buscar.json();
-  // console.log(resposta);
+  return await buscar.json();
 };
 
 const remove = async (id) => {
   const buscar = await fetch(LINK + `/${id}`, {
     method: 'DELETE',
   });
-  let resposta = await buscar.json();
-  // console.log(resposta);
+  return await buscar.json();
+};
+
+const put = async (id, dadosAlterados) => {
+  const buscar = await fetch(LINK + `/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(dadosAlterados),
+  });
+  return await buscar.json();
 };
 
 export { get, post, remove };

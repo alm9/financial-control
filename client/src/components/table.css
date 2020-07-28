@@ -28,6 +28,12 @@ tr td {
 }
 
 /* botão delete */
+.bttEdit {
+  /* transform: translateX(20%); */
+  border-radius: 7px;
+  transition: 1s;
+  background: rgb(119, 0, 255);
+}
 .bttDelete {
   transform: translateX(20%);
   border-radius: 90px;

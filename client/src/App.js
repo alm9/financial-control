@@ -44,7 +44,7 @@ export default function App() {
           type="month"
           min="2019-01"
           value={period}
-          max="2021-01"
+          max="2022-01"
           onChange={handleOnChangeMonth}
         />
         <Bar vetor={vetor} />
